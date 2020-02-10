@@ -9,8 +9,12 @@ Design and assumptions are in the respective headers.
 Steps to build
 1. Extract to directory.
 2. cd to that top level directory "dca"
-3. $make
+3. $make all
+
+Running the application:
 4. $./dca
+5. When prompted for "Enter file name or < Ctrl+C > to exit", enter the full absolute path of the input file.
+6. prints error or success.
 5. $./output_for_<input_filename> gets generated.
 6.  "log.txt" (with debug info) gets generated in the current directory 
 
