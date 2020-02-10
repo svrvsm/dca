@@ -1,0 +1,25 @@
+Assumption:
+The data set is sorted. This helps to find the angle between adjacent points in linear time( O(n)). Otherwise a sorting operation( nlogn ) need to be performed to get the data set ordered and then delta computation need to be performed. The entire logic relies on this fact and enforces such conditions in code and ignores data points which don't obey such constraint.
+
+Solution to find cluster:
+
+Inorder to find cluster we have to find adjacent points which are neighbours AND are of some minimum size. These are subjective to begin width. From the data, IF angular distance between adjacent points are greater than 10 degree ( ) then that's a highly likely there won't exist anything around space. Generally speaking this assumption make sense in this particular domain, since any natural object(ex - rock) would necessarily have enough visual feature( ex: edges of a rock) that can be identified closely. The fact that there isn't any feature within 10 degree of separation implies empty space which robot can navigate.
+
+Note: 10 degree gives close enough solution.  But there can be other such variations as well.
+
+Additionally, if the (roughly half) size of the object (distance from the center of the cluster to the widest point) also plays a role in identifying a group as cluster or not. Based on the data set size, lessthan 3 degree(mean - lowest feature) are ignored. This alludes to the fact that the object is either a narrow object or object is positioned perpendicular to the angle of the mirror. Either way either using "r" value or taking a close up shot for those data points helps to validate as the cluster as a hindrance or not. 
+
+Bugs:
+1. Not much extensive testing has been done to uncover improperly formatted data and / or edge cases. But code checks are done. 
+
+Improvement:
+Ideally if time permitted, I would have the delta between adjacent points(10 degree) and delta between mean and the minimum feature ( 3 degree) as a over-ridden parameter through command line. This helps to run multiple iterations to find out various clusters of interest. 
+
+=================
+
+Extra credit :
+1. Nicely documented such that there is enough clue to dig deep to figure out solution. 
+
+2. This problem identifies solid object ex - rocks and such. However there could be trenches or a steep elevation or water for which the robot need to use other techniques to figure out a better understanding of the environment. 
+
+3. Runtime - Order of n. 
